@@ -101,29 +101,29 @@
 // console.log(confirmTrue("Mike", "Mike"));
 
 // start function
-const palindromeCheck = (word) => {
-
-var splitArray = word.split("");
-var reverseArray = word.split("").reverse();
-var sum = 0;
-
-for(i = 0; i < reverseArray.length; i++){
-  if(reverseArray[i] === splitArray[i]){
-    sum += 1;
-  } else {
-    sum += 0;
-  }
-}
-
-if(sum/reverseArray.length === 1){
-  return true;
-} else {
-  return false;
-}
-}
-
-console.log(palindromeCheck("emma"));
-console.log(palindromeCheck("racecar"));
+// const palindromeCheck = (word) => {
+//
+// var splitArray = word.split("");
+// var reverseArray = word.split("").reverse();
+// var sum = 0;
+//
+// for(i = 0; i < reverseArray.length; i++){
+//   if(reverseArray[i] === splitArray[i]){
+//     sum += 1;
+//   } else {
+//     sum += 0;
+//   }
+// }
+//
+// if(sum/reverseArray.length === 1){
+//   return true;
+// } else {
+//   return false;
+// }
+// }
+//
+// console.log(palindromeCheck("emma"));
+// console.log(palindromeCheck("racecar"));
 
 const palindromeNumCheck = (number) => {
 
@@ -147,5 +147,15 @@ if(sum2/numSplitRev.length === 1){
 }
 }
 
-console.log(palindromeNumCheck(245));
-console.log(palindromeNumCheck(364463));
+// console.log(palindromeNumCheck(245));
+// console.log(palindromeNumCheck(364463));
+
+const getNumber = () => {
+
+for(i = 1; i < 100; i++){
+  var num1 = i;
+  palindromeNumCheck(num1);
+}
+}
+
+getNumber();
