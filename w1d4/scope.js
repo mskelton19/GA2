@@ -36,9 +36,15 @@
 // console.log("outside: " + i);
 
 
-const checkSquare = (number) => {
-  return Math.sqrt(number);
-}
+// const checkSquare = (number) => {
+//   if(Math.sqrt(number) );
+// }
 
-console.log(checkSquare(36));
-console.log(checkSquare(35));
+// console.log(checkSquare(36));
+// console.log(checkSquare(35));
+
+const countdown = (num) => {
+  if (num == 0) return;
+  console.log(num);
+  return countdown(num - 1);
+}
