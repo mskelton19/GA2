@@ -5,18 +5,33 @@ let scissors = 0;
 let cutTeeth = () => {
   money += 1;
   days += 1;
-  // console.log("Days: " + days + " Money: " + money);
+  console.log("Days: " + days + " Money: " + money);
   game();
+}
+
+let cutScissors = () => {
+  if(scissors == 1){
+  money += 5;
+  days += 1;
+  console.log("Days: " + days + " Money: " + money);
+  game();
+} else {
+  alert("You don't own any scissors");
+  game();
+}
 }
 
 let buyScissors = () => {
   if(money >= 5 && scissors < 1){
     scissors += 1;
     money -= 5;
-    // console.log("Days: " + days + " Money: " + money);
+    console.log("Days: " + days + " Money: " + money);
+    game();
+  } else if(money < 5){
+    alert("You do not have enough money to buy scissors");
     game();
   } else {
-    alert("You do not have enough money to buy scissors");
+    alert("You already own scissors");
     game();
   }
 }
@@ -33,6 +48,8 @@ if(toDo == "work" || toDo === "Work"){
 
   if(equipment === "Teeth" || equipment === "teeth"){
     cutTeeth();
+  } else if(equipment === "Scissors" || equipment === "scissors"){
+    cutScissors();
   }
 
 // If they say Buy
