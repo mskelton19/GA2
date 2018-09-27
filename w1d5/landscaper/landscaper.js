@@ -1,13 +1,53 @@
 let money = 0;
 let days = 0;
+let scissors = 0;
 
-// Ask how they're going to mow the lawns
-const equipment = prompt("What will you use to mow the lawn?", "Teeth");
-
-// If they say they're going to use their teeth
-if(equipment === 'teeth' || equipment === 'Teeth'){
-  // Add +1 days
-  days += 1;
-  // Add +$1 in money
+let cutTeeth = () => {
   money += 1;
+  days += 1;
+  // console.log("Days: " + days + " Money: " + money);
+  game();
 }
+
+let buyScissors = () => {
+  if(money >= 5 && scissors < 1){
+    scissors += 1;
+    money -= 5;
+    // console.log("Days: " + days + " Money: " + money);
+    game();
+  } else {
+    alert("You do not have enough money to buy scissors");
+    game();
+  }
+}
+
+const game = () => {
+// Check what action the user wants to take. Buy/work
+let toDo = prompt("What do you want to do?", "Work, Buy");
+
+// If the user says work
+if(toDo == "work" || toDo === "Work"){
+
+// Check which item they want to use
+  let equipment = prompt("What equipment will you use?", "Teeth, Scissors")
+
+  if(equipment === "Teeth" || equipment === "teeth"){
+    cutTeeth();
+  }
+
+// If they say Buy
+} else if(toDo === "Buy" || toDo === "buy"){
+
+  // prompt user for what they want to purchase
+  let purchase = prompt("What equipment will you buy?", "Scissors")
+
+  // if they choose to buy Scissors
+  if(purchase === "Scissors" || purchase === "scissors"){
+    buyScissors();
+  }
+}
+}
+
+game();
+
+// Closes game function
