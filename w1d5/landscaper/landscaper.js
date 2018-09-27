@@ -3,6 +3,7 @@ let days = 0;
 let scissors = 0;
 let pushMower = 0;
 let powerMower = 0;
+let team = 0;
 
 let cutTeeth = () => {
   money += 1;
@@ -94,9 +95,45 @@ let cutPowerMower = () => {
   }
 }
 
+let buyTeam = () => {
+  if(money >= 500 && powerMower == 1 && team < 1){
+    money -= 500;
+    days += 1;
+    team += 1;
+    console.log("Days: " + days + " Money: " + money);
+    game();
+  } else if(money < 1000){
+    alert("You don't have enough money to hire a team");
+    game();
+  } else if(powerMower < 1){
+    alert("You have to purchase a power mower before you can hire a team");
+    game();
+  } else if(team == 1){
+    alert("You already have a power mower");
+    game();
+  }
+}
 
+let cutTeam = () => {
+  if(team == 1){
+    money += 250;
+    days += 1;
+    console.log("Days: " + days + " Money: " + money);
+    game();
+  }
+}
+
+const endGame = () => {
+  alert("You won with: " + money + " dollars.");
+  return;
+}
 
 const game = () => {
+
+if(money >= 1000){
+  endGame();
+  return;
+}
 // Check what action the user wants to take. Buy/work
 let toDo = prompt("What do you want to do?", "Work, Buy");
 
@@ -114,6 +151,8 @@ if(toDo == "work" || toDo === "Work"){
     cutPushMower();
   } else if(equipment === "Power Mower" || equipment === "power mower" || equipment === "Power mower"){
     cutPowerMower();
+  } else if(equipment === "Team" || equipment === 'team'){
+    cutTeam();
   } else {
     alert("No match found, please retry");
     game();
@@ -132,6 +171,8 @@ if(toDo == "work" || toDo === "Work"){
     buyPush();
   } else if(purchase === "Power Mower" || purchase === "power mower" || purchase === "Power mower"){
     buyPower();
+  } else if(purchase === "Team" || purchase ==='team'){
+    buyTeam();
   } else {
     alert("No match found, please retry");
     game();
