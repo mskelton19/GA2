@@ -1,0 +1,26 @@
+div.title {
+  margin-top: 10px;
+  border-bottom: 1px dotted black;
+  font-family: "Bookman";
+  text-align: center;
+}
+
+div.greeting {
+  background-color: #343A40;
+  color: white;
+}
+
+h1.greeting {
+  margin: 20px;
+  font-style: italic;
+}
+
+p.greeting {
+  margin: 15px;
+  font-size: 18px;
+  font-family: sans-serif;
+}
+
+h1 {
+
+}
