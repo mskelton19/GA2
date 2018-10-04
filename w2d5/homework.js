@@ -29,18 +29,32 @@
 // console.log(myInformation.changeName());
 
 //  Greeter
-const greeter = {
-  hello(name){
-    return("Hello, " + name + ". How are you today?")
-  },
-  goodbye(name){
-    return("Peace out, " + name + "!")
-  },
-  whoAreYou(name){
-    return("Oh right! " + name + "! How could I forget?")
+// const greeter = {
+//   hello(name){
+//     return("Hello, " + name + ". How are you today?")
+//   },
+//   goodbye(name){
+//     return("Peace out, " + name + "!")
+//   },
+//   whoAreYou(name){
+//     return("Oh right! " + name + "! How could I forget?")
+//   }
+// }
+//
+// console.log(greeter.hello("Mike"));
+// console.log(greeter.goodbye("Billy"));
+// console.log(greeter.whoAreYou("Emma"));
+
+// Collecting Strings
+const stringCollector = {
+  collection: [],
+  collect(string){
+    var splitString = string.split("");
+    var reverseArray = splitString.reverse();
+    var joinArray = reverseArray.join("");
+    this.collection.push(joinArray);
+    return this.collection;
   }
 }
 
-console.log(greeter.hello("Mike"));
-console.log(greeter.goodbye("Billy"));
-console.log(greeter.whoAreYou("Emma"));
+console.log(stringCollector.collect("Mike"));
