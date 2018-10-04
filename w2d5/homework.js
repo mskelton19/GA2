@@ -60,16 +60,31 @@
 // console.log(stringCollector.collect("Mike"));
 
 // ATM
-let atm = {
-  totalCash: 1000,
-  dispenseTwenties(num){
-    if(num * 20 <= this.totalCash){
-      this.totalCash -= num * 20
-      return this.totalCash;
-    } else {
-      return null;
-    }
+// let atm = {
+//   totalCash: 1000,
+//   dispenseTwenties(num){
+//     if(num * 20 <= this.totalCash){
+//       this.totalCash -= num * 20
+//       return this.totalCash;
+//     } else {
+//       return null;
+//     }
+//   }
+// }
+//
+// console.log(atm.dispenseTwenties(10))
+
+// Hungry Turtles
+let calculator = {
+  output: 0,
+  multiply(num1, num2){
+    this.output = num1 * num2;
+    return this.output;
+  },
+  divide(num1, num2){
+    this.output = num1/num2;
+    return this.output;
   }
 }
 
-console.log(atm.dispenseTwenties(10))
+console.log(calculator.divide(8, 2));
