@@ -75,16 +75,30 @@
 // console.log(atm.dispenseTwenties(10))
 
 // Hungry Turtles
-let calculator = {
-  output: 0,
-  multiply(num1, num2){
-    this.output = num1 * num2;
-    return this.output;
-  },
-  divide(num1, num2){
-    this.output = num1/num2;
-    return this.output;
-  }
-}
+// let calculator = {
+//   output: 0,
+//   multiply(num1, num2){
+//     this.output = num1 * num2;
+//     return this.output;
+//   },
+//   divide(num1, num2){
+//     this.output = num1/num2;
+//     return this.output;
+//   }
+// }
+//
+// console.log(calculator.divide(8, 2));
 
-console.log(calculator.divide(8, 2));
+// Iterators
+// const words = ["Ho", "Chi", "Minh", "City", "was", "once", "known", "as", "Prey", "Nokor"];
+//
+// words.forEach(element =>{
+//   console.log(element)
+// })
+
+// map
+
+// let array1 = [3,6,9]
+// const map1 = array1.map(x => x/3);
+//
+// console.log(map1);
