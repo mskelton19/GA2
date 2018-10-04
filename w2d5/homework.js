@@ -46,15 +46,30 @@
 // console.log(greeter.whoAreYou("Emma"));
 
 // Collecting Strings
-const stringCollector = {
-  collection: [],
-  collect(string){
-    var splitString = string.split("");
-    var reverseArray = splitString.reverse();
-    var joinArray = reverseArray.join("");
-    this.collection.push(joinArray);
-    return this.collection;
+// const stringCollector = {
+//   collection: [],
+//   collect(string){
+//     var splitString = string.split("");
+//     var reverseArray = splitString.reverse();
+//     var joinArray = reverseArray.join("");
+//     this.collection.push(joinArray);
+//     return this.collection;
+//   }
+// }
+//
+// console.log(stringCollector.collect("Mike"));
+
+// ATM
+let atm = {
+  totalCash: 1000,
+  dispenseTwenties(num){
+    if(num * 20 <= this.totalCash){
+      this.totalCash -= num * 20
+      return this.totalCash;
+    } else {
+      return null;
+    }
   }
 }
 
-console.log(stringCollector.collect("Mike"));
+console.log(atm.dispenseTwenties(10))
