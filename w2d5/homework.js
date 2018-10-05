@@ -90,6 +90,7 @@
 // console.log(calculator.divide(8, 2));
 
 // Iterators
+// for each
 // const words = ["Ho", "Chi", "Minh", "City", "was", "once", "known", "as", "Prey", "Nokor"];
 //
 // words.forEach(element =>{
@@ -102,3 +103,13 @@
 // const map1 = array1.map(x => x/3);
 //
 // console.log(map1);
+
+// chaining
+
+//  reduce
+// const arr = [8, 8, 8, 8, 8, 8, 8, 8];
+// const reducer = (sum, value) => {
+//   return sum += value
+// };
+//
+// console.log(arr.reduce(reducer));
