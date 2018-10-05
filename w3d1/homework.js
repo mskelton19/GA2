@@ -8,9 +8,9 @@ class Person {
 
 const me = new Person("Mike", 29, "Male");
 const emma = new Person("Emma", 28, "Female");
-console.log(me);
+// console.log(me);
 
-class Dog {
+class Pet {
   constructor(name, age, color, weight, owner){
   this.name = name,
   this.age = age,
@@ -23,7 +23,19 @@ class Dog {
   }
 }
 
-const Chief = new Dog("Chief", 4, "black", 70, me);
-this.owner = Chief.setOwner(emma);
+class Dog extends Pet {
+  constructor(name, price){
+    super(name);
+    this.price = price;
+  }
+  getPrice(){
+    return this.price;
+  }
+}
 
-console.log(Chief);
+// const Chief = new Pet("Chief", 4, "black", 70, me);
+// this.owner = Chief.setOwner(emma);
+const Chief = new Dog("Chief", 175);
+Chief.setOwner(me);
+
+console.log(Chief.getPrice());
