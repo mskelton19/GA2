@@ -33,9 +33,34 @@ class Dog extends Pet {
   }
 }
 
+class Cat extends Pet {
+  constructor(name, price){
+  super(name);
+  this.price = price;
+}
+purr(){
+  console.log("purrrr")
+}
+clean(){
+  console.log("cleaning")
+}
+getPrice(){
+  return this.price
+}
+}
+
 // const Chief = new Pet("Chief", 4, "black", 70, me);
 // this.owner = Chief.setOwner(emma);
-const Chief = new Dog("Chief", 175);
-Chief.setOwner(me);
+// const Chief = new Dog("Chief", 175);
+// Chief.setOwner(me);
+//
+// console.log(Chief.getPrice());
 
-console.log(Chief.getPrice());
+const Sparkles = new Cat("Sparkles", 8000);
+Sparkles.age = 1;
+Sparkles.color = "white";
+Sparkles.weight = 12;
+Sparkles.owner = emma;
+console.log(Sparkles.getPrice());
+
+console.log(Sparkles);
