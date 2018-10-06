@@ -1,14 +1,51 @@
 class Person {
-  constructor(name, age, gender){
+  constructor(name, age, weight, mood, pets, bank){
     this.name = name,
     this.age = age,
-    this.gender = gender
+    this.weight = weight,
+    this.mood = mood,
+    this.pets = [],
+    this.bankAccount = bank
+  }
+  getName(){
+    return this.name;
+  }
+  getAge(){
+    return this.age;
+  }
+  getWeight(){
+    return this.weight;
+  }
+  greet(other_person){
+    "Hi " + other_person + " how are you?";
+  }
+  eat(){
+    this.weight += 1;
+    this.mood += 1;
+  }
+  exercise(){
+    this.weight -= 1;
+  }
+  age(){
+    this.age += 1;
+    this.weight += 1;
+    this.mood -= 1;
+    this.bank += 10;
+  }
+  buyPet(pet){
+    this.pets.push(pet);
+    this.mood += 10;
+    this.bank = this.bank - (pet.getPrice("Chief"))
   }
 }
 
-const me = new Person("Mike", 29, "Male");
+// const me = new Person("Mike", 29, "Male");
 const emma = new Person("Emma", 28, "Female");
-// console.log(me);
+const me = new Person("Mike", 29, 190, 6, "Chief", 25000);
+me.buyPet("Chief");
+console.log(me);
+
+
 
 class Pet {
   constructor(name, age, color, weight, owner){
@@ -28,8 +65,8 @@ class Dog extends Pet {
     super(name);
     this.price = price;
   }
-  getPrice(){
-    return this.price;
+  getPrice(pet){
+    return pet.price;
   }
 }
 
@@ -44,8 +81,8 @@ purr(){
 clean(){
   console.log("cleaning")
 }
-getPrice(){
-  return this.price
+getPrice(pet){
+  return pet.price
 }
 }
 
