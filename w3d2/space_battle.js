@@ -32,6 +32,23 @@ let round = 0;
 let decision = null;
 // Create a class for ships
 
+function promptAttack(){
+  console.log(decision)
+if(decision === "yes"){
+  alert("You're fighting Alien " + this.number);
+  console.log(this.hull);
+  let attack = prompt("Attack or retreat?");
+  if(attack === "attack"){
+    checkAccuracy();
+  }
+}
+}
+
+function newRound(){
+  round += 1;
+  currentAlien = Aliens[round];
+}
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * ((max - min)) + min);
 }
@@ -45,14 +62,26 @@ function hitAlien(){
   console.log(this.hull);
   if(this.hull <= 0){
     alert("Alien " + this.number + " destroyed");
+    round += 1;
+
   } else {
     alert("Alien hit. Current alien hull: " + this.hull);
+    alienAccuracy();
   }
+}
+
+function lose(){
+  alert("You lost");
 }
 
 function alienHit(){
   USSSchwarzenneger.hull -= this.firepower;
-  console.log("USS Hull: " + USSSchwarzenneger.hull)
+  console.log("USS Hull: " + USSSchwarzenneger.hull);
+  if(USSSchwarzenneger.hull <= 0){
+    lose();
+  } else {
+
+  }
 }
 
 function alienAccuracy(){
@@ -62,6 +91,7 @@ function alienAccuracy(){
     alienHit();
   } else {
     console.log("You missed");
+
   }
 }
 
@@ -85,35 +115,32 @@ class Ship {
 const USSSchwarzenneger = new Ship(20, 5, .7);
 // console.log(USSSchwarzenneger);
 
+function createShips(){
 for(i = 0; i < 6; i++){
     aliens[i] = new Ship(
     this.number = 1,
     this.hull = getRandomInt(3,6),
     this.firepower = getRandomInt(2,4),
     this.accuracy = getRandomVar(.6,.8))
+  }
 }
 
 // console.log(aliens[0])
 
 // Start the game
 function start(){
+  createShips();
   round = 1;
   decision = prompt("Start game?");
   currentAlien = aliens[0];
-  console.log("Hull: " + this.hull)
+  console.log("Hull: " + this.hull);
+  promptAttack();
   return decision;
 }
 
 console.log(start());
 
-if(decision === "yes"){
-  alert("You're fighting Alien " + this.number);
-  console.log(this.hull);
-  let attack = prompt("Attack or retreat?");
-  if(attack === "attack"){
-    checkAccuracy();
-  }
-}
+
 
 // Check to see if Schwarzenegger has any life
 
