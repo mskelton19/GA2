@@ -40,11 +40,10 @@ const USSSchwarzenneger = new Ship(20, 5, .7);
 console.log(USSSchwarzenneger);
 
 for(i = 0; i < 6; i++){
-  let i = new Ship(
+    aliens[i] = new Ship(
     this.hull = getRandomInt(3,6),
     this.firepower = getRandomInt(2,4),
     this.accuracy = getRandomVar(.6,.8))
-    console.log(i);
 }
 
 function getRandomInt(min, max){
@@ -54,5 +53,3 @@ function getRandomInt(min, max){
 function getRandomVar(min, max){
   return Math.random() * ((max-min)) + min;
 }
-
-console.log(1);
