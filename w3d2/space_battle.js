@@ -27,7 +27,53 @@
 
 // Create a array of alien ships
 let aliens = []
+let currentAlien = null;
+let round = 0;
+let decision = null;
 // Create a class for ships
+
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * ((max - min)) + min);
+}
+
+function getRandomVar(min, max) {
+  return Math.random() * ((max-min)) + min;
+}
+
+function hitAlien(){
+  this.hull -= USSSchwarzenneger.firepower;
+  console.log(this.hull);
+  if(this.hull <= 0){
+    alert("Alien " + this.number + " destroyed");
+  } else {
+    alert("Alien hit. Current alien hull: " + this.hull);
+  }
+}
+
+function alienHit(){
+  USSSchwarzenneger.hull -= this.firepower;
+  console.log("USS Hull: " + USSSchwarzenneger.hull)
+}
+
+function alienAccuracy(){
+  alert("Alien " + this.number + " is about to attack");
+  if(Math.random() < this.accuracy){
+    alert("You've been hit")
+    alienHit();
+  } else {
+    console.log("You missed");
+  }
+}
+
+function checkAccuracy(){
+  if(Math.random() < USSSchwarzenneger.accuracy){
+    hitAlien();
+  } else {
+    alert("You missed");
+    alienAccuracy();
+  }
+}
+
 class Ship {
   constructor(hull, firepower, accuracy){
     this.hull = hull,
@@ -37,19 +83,43 @@ class Ship {
 }
 
 const USSSchwarzenneger = new Ship(20, 5, .7);
-console.log(USSSchwarzenneger);
+// console.log(USSSchwarzenneger);
 
 for(i = 0; i < 6; i++){
     aliens[i] = new Ship(
+    this.number = 1,
     this.hull = getRandomInt(3,6),
     this.firepower = getRandomInt(2,4),
     this.accuracy = getRandomVar(.6,.8))
 }
 
-function getRandomInt(min, max){
-  return Math.floor(Math.random() * ((max - min)) + min);
+// console.log(aliens[0])
+
+// Start the game
+function start(){
+  round = 1;
+  decision = prompt("Start game?");
+  currentAlien = aliens[0];
+  console.log("Hull: " + this.hull)
+  return decision;
 }
 
-function getRandomVar(min, max){
-  return Math.random() * ((max-min)) + min;
+console.log(start());
+
+if(decision === "yes"){
+  alert("You're fighting Alien " + this.number);
+  console.log(this.hull);
+  let attack = prompt("Attack or retreat?");
+  if(attack === "attack"){
+    checkAccuracy();
+  }
 }
+
+// Check to see if Schwarzenegger has any life
+
+// Check which alien you're fighting
+
+
+// if it has life, allow the user to decide if they want to attack
+
+// if user attacks. run random function to check whether it's a hit
