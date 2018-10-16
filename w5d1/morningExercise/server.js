@@ -10,6 +10,14 @@ app.get('/niles', (req, res) =>{
   res.send("You know, sometimes I wonder if I'm not just in psychiatry for the money")
 })
 
+app.get('/daphne', (req, res) => {
+  res.send("Well, have fun. I'm off to stick my head in the oven");
+})
+
+app.get('/roz', (req, res) => {
+  res.send("Let me make it easy for you. Freaks! Freaks on line 1. Freaks on line 2. Freaks! Everywhere!");
+})
+
 app.listen(3000, () => {
   console.log("Listening");
 })
