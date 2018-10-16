@@ -7,11 +7,15 @@ const app = express();
 var port = 3000;
 
 app.get('/superheroes', (req, res) => {
-  res.send(superheroes);
+  res.render('show.ejs', {
+    superheroes
+  });
 })
 
 app.get('/superheroes/:index', (req, res) => {
-  res.send(superheroes[req.params.index])
+  res.render('superheroes.ejs', {
+    superheroes: superheroes[req.params.index]
+  });
 })
 
 
